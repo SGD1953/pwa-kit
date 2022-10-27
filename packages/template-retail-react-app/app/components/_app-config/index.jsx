@@ -43,14 +43,16 @@ const AppConfig = ({children, locals = {}}) => {
     const [basket, setBasket] = useState(null)
     const [customer, setCustomer] = useState(null)
 
-    const {correlationId} = useCorrelationId()
-    const headers = {
-        'correlation-id': correlationId
-    }
+    // const {correlationId} = useCorrelationId()
+    // const headers = {
+    //     'correlation-id': correlationId
+    // }
 
     const commerceApiConfig = locals.appConfig.commerceAPI
 
     const appOrigin = getAppOrigin()
+
+    console.log('AppConfig rendering======================')
 
     return (
         <CommerceApiProvider
@@ -62,7 +64,7 @@ const AppConfig = ({children, locals = {}}) => {
             currency={locals.locale?.preferredCurrency}
             redirectURI={`${appOrigin}/callback`}
             proxy={`${appOrigin}${commerceApiConfig.proxyPath}`}
-            headers={headers}
+            // headers={headers}
         >
             <MultiSiteProvider site={locals.site} locale={locals.locale} buildUrl={locals.buildUrl}>
                 <_CommerceAPIProvider value={locals.api}>
