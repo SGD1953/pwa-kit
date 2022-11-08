@@ -48,7 +48,7 @@ jest.mock('./storage', () => {
     }
 })
 
-const mockRefreshAccessToken = jest.fn().mockResolvedValue('')
+const mockRefreshAccessToken = jest.fn()
 const mockLoginGuestUser = jest.fn().mockResolvedValue('')
 const mockLoginRegisteredUserB2C = jest.fn().mockResolvedValue('')
 const mockLogout = jest.fn().mockResolvedValue('')
