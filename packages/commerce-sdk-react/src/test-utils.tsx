@@ -133,7 +133,6 @@ export const mockHttpResponses = (options: NockBackOptions) => {
 
     const mockAuthCalls = () => {
         nock('http://localhost:3000')
-            .persist()
             .get((uri) => {
                 return uri.includes('/oauth2/authorize')
             })
@@ -146,7 +145,6 @@ export const mockHttpResponses = (options: NockBackOptions) => {
             .get('/callback?usid=12345&code=ABCDE')
             .reply(200)
         nock('http://localhost:3000')
-            .persist()
             .post((uri) => {
                 return uri.includes('/oauth2/login')
             })
@@ -159,7 +157,6 @@ export const mockHttpResponses = (options: NockBackOptions) => {
             )
             .reply(200)
         nock('http://localhost:3000')
-            .persist()
             .post((uri) => {
                 return uri.includes('/oauth2/token')
             })
